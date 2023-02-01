@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 
 class Free_Proxt_Cz:
     def __init__(self):
-        self.domain = 'http://free-proxy.cz/en/'
+        self.domain = 'https://free-proxy.cz/en/'
         self.fake_useragent = lambda: fake_useragent.UserAgent().random.strip()
         self.csv_path = 'free_proxy_cz.csv'
 
@@ -129,7 +129,7 @@ class Free_Proxt_Cz:
 
         print('PARSING...')
         options_chrome = webdriver.ChromeOptions()
-        # options_chrome.add_argument('--headless')
+        options_chrome.add_argument('--headless')
         with webdriver.Chrome(options=options_chrome) as browser:
             proxy_list = []
             for page in range(1, 6):

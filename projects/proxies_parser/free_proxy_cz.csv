@@ -2,37 +2,88 @@
 163.116.158.115;8081;HTTP;France;;;High anonymity;7004 kB/s;96.2%;174 ms;11 hours ago
 163.116.158.28;8081;HTTP;France;;;High anonymity;5906 kB/s;92.9%;168 ms;13 hours ago
 163.116.158.143;8081;HTTP;France;;;High anonymity;5807 kB/s;100%;66 ms;9 hours ago
-163.116.158.183;8081;HTTP;France;;;High anonymity;5553 kB/s;100%;58 ms;13 hours ago
 163.116.158.118;8081;HTTP;France;;;High anonymity;5487 kB/s;100%;167 ms;15 hours ago
 163.116.158.142;8081;HTTP;France;;;High anonymity;5340 kB/s;100%;61 ms;15 hours ago
 163.116.158.182;8081;HTTP;France;;;High anonymity;4942 kB/s;42.9%;65 ms;10 hours ago
-163.116.177.44;809;HTTP;France;;;High anonymity;2147 kB/s;;316 ms;14 hours ago
-163.116.177.39;808;HTTP;France;;;High anonymity;2017 kB/s;100%;303 ms;9 hours ago
-163.116.177.45;809;HTTP;France;;;High anonymity;1994 kB/s;;319 ms;10 hours ago
-163.116.177.42;809;HTTP;France;;;High anonymity;1977 kB/s;;389 ms;14 hours ago
-163.116.177.34;808;HTTP;France;;;High anonymity;1971 kB/s;100%;311 ms;9 hours ago
-163.116.177.50;809;HTTP;France;;;High anonymity;1917 kB/s;;416 ms;9 hours ago
-163.116.177.33;808;HTTP;France;;;High anonymity;1891 kB/s;100%;306 ms;15 hours ago
-163.116.177.48;809;HTTP;France;;;High anonymity;1856 kB/s;;311 ms;13 hours ago
-163.116.177.30;809;HTTP;France;;;High anonymity;1791 kB/s;;316 ms;13 hours ago
-89.38.96.219;3128;HTTPS;Netherlands;;;Transparent;1780 kB/s;8.4%;471 ms;14 hours ago
-163.116.177.47;808;HTTP;France;;;High anonymity;1771 kB/s;100%;314 ms;12 hours ago
-163.116.177.49;808;HTTP;France;;;High anonymity;1764 kB/s;100%;403 ms;15 hours ago
-163.116.177.46;808;HTTP;France;;;High anonymity;1749 kB/s;100%;306 ms;9 hours ago
-163.116.177.31;809;HTTP;France;;;High anonymity;1747 kB/s;;304 ms;14 hours ago
-163.116.177.43;808;HTTP;France;;;High anonymity;1689 kB/s;100%;306 ms;10 hours ago
-163.116.177.51;809;HTTP;France;;;High anonymity;1611 kB/s;;392 ms;10 hours ago
 195.154.114.49;8123;HTTPS;France;;;Transparent;1580 kB/s;96.3%;466 ms;15 hours ago
 89.132.144.41;9090;HTTPS;Hungary;Budapest;Budapest;Transparent;1326 kB/s;100%;708 ms;10 hours ago
 163.116.158.23;8081;HTTP;France;;;High anonymity;5509 kB/s;86.7%;162 ms;10 hours ago
 163.116.158.116;8081;HTTP;France;;;High anonymity;4600 kB/s;92.9%;163 ms;9 hours ago
-143.198.187.65;38172;SOCKS5;United States;Colorado;Broomfield;High anonymity;4005 kB/s;45%;61 ms;9 hours ago
-163.116.177.32;808;HTTP;France;;;High anonymity;2065 kB/s;100%;303 ms;4 hours ago
-82.165.122.167;3128;HTTPS;Germany;;;Transparent;1505 kB/s;4.1%;491 ms;10 hours ago
 184.170.248.5;4145;SOCKS5;United States;Illinois;Chicago;High anonymity;1360 kB/s;99.3%;434 ms;9 hours ago
-192.252.216.81;4145;SOCKS5;United States;Georgia;Atlanta;High anonymity;1358 kB/s;100%;431 ms;4 hours ago
 68.71.254.6;4145;SOCKS5;United States;California;Beverly Hills;High anonymity;1270 kB/s;99.3%;534 ms;10 hours ago
 68.71.247.130;4145;SOCKS5;United States;California;Beverly Hills;High anonymity;1258 kB/s;99.3%;534 ms;7 hours ago
 68.71.249.153;48606;SOCKS5;United States;California;Beverly Hills;High anonymity;1244 kB/s;60.5%;534 ms;9 hours ago
 72.37.217.3;4145;SOCKS5;United States;;;High anonymity;1241 kB/s;100%;529 ms;12 hours ago
 72.37.216.68;4145;SOCKS5;United States;;;High anonymity;1233 kB/s;98.6%;536 ms;11 hours ago
+163.116.158.117;8081;HTTP;France;;;High anonymity;5553 kB/s;100%;65 ms;6 hours ago
+51.81.32.81;8888;HTTPS;France;;;Transparent;4600 kB/s;11.9%;84 ms;9 hours ago
+159.65.184.84;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4540 kB/s;100%;55 ms;13 hours ago
+157.245.223.201;59166;SOCKS5;United States;Oregon;Eugene;High anonymity;4481 kB/s;100%;74 ms;12 hours ago
+159.89.90.162;59166;SOCKS5;United States;New Jersey;North Bergen;High anonymity;4369 kB/s;40%;59 ms;13 hours ago
+165.227.79.99;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4223 kB/s;85.7%;58 ms;8 hours ago
+161.35.125.167;59166;SOCKS5;United States;New Jersey;Mahwah;High anonymity;4136 kB/s;60%;55 ms;8 hours ago
+159.89.34.109;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4123 kB/s;;60 ms;12 hours ago
+68.183.22.43;59166;SOCKS5;United States;California;Livermore;High anonymity;3937 kB/s;80%;57 ms;6 hours ago
+157.245.130.145;59166;SOCKS5;United States;Oregon;Eugene;High anonymity;3926 kB/s;40%;54 ms;10 hours ago
+159.65.220.89;59166;SOCKS5;United States;New Jersey;North Bergen;High anonymity;3737 kB/s;80%;59 ms;11 hours ago
+68.183.20.254;59166;SOCKS5;United States;California;Livermore;High anonymity;2277 kB/s;60%;275 ms;5 hours ago
+69.194.181.6;7497;SOCKS5;United States;Louisiana;Kinder;High anonymity;1824 kB/s;100%;335 ms;11 hours ago
+142.93.16.20;59166;SOCKS5;Canada;Ontario;Toronto;High anonymity;1543 kB/s;;399 ms;6 hours ago
+184.170.249.65;4145;SOCKS5;United States;Illinois;Chicago;High anonymity;1397 kB/s;98%;432 ms;5 hours ago
+164.90.152.213;59166;SOCKS5;United States;Washington;Snoqualmie;High anonymity;1376 kB/s;37.5%;494 ms;8 hours ago
+205.185.117.77;16831;SOCKS5;United States;California;San Jose;High anonymity;1372 kB/s;8.2%;489 ms;7 hours ago
+138.68.245.25;59166;SOCKS5;United States;California;Santa Clara;High anonymity;1358 kB/s;;394 ms;10 hours ago
+104.37.135.145;4145;SOCKS5;United States;;;High anonymity;1353 kB/s;99.6%;489 ms;13 hours ago
+142.54.226.214;4145;SOCKS5;United States;California;Aliso Viejo;High anonymity;1234 kB/s;98.6%;532 ms;6 hours ago
+67.201.33.10;25283;SOCKS5;United States;California;Beverly Hills;High anonymity;1227 kB/s;93.4%;531 ms;11 hours ago
+104.248.167.16;59166;SOCKS5;United States;Delaware;Wilmington;High anonymity;1213 kB/s;40%;482 ms;8 hours ago
+72.221.232.155;4145;SOCKS5;United States;;;High anonymity;1212 kB/s;97.9%;481 ms;6 hours ago
+206.189.118.100;59166;SOCKS5;United States;New York;Flushing;High anonymity;1204 kB/s;100%;491 ms;12 hours ago
+184.181.217.194;4145;SOCKS5;United States;;;High anonymity;1198 kB/s;99.9%;487 ms;10 hours ago
+184.181.217.210;4145;SOCKS5;United States;;;High anonymity;1187 kB/s;97%;493 ms;12 hours ago
+154.16.180.182;3128;HTTPS;United States;;;Transparent;1160 kB/s;62.4%;981 ms;8 hours ago
+165.22.204.32;59166;SOCKS5;United States;Washington;Seattle;High anonymity;1145 kB/s;;523 ms;12 hours ago
+62.171.161.88;2018;HTTPS;United Kingdom;;;Transparent;1132 kB/s;7.6%;683 ms;11 hours ago
+146.59.152.52;59166;SOCKS5;Norway;Oslo;Oslo;High anonymity;1112 kB/s;;493 ms;12 hours ago
+51.68.115.39;59166;SOCKS5;France;;;High anonymity;1097 kB/s;;510 ms;6 hours ago
+51.210.45.188;59166;SOCKS5;France;;;High anonymity;1089 kB/s;;553 ms;13 hours ago
+87.98.158.205;59166;SOCKS5;France;;;High anonymity;1084 kB/s;;493 ms;8 hours ago
+142.93.168.85;59166;SOCKS5;Canada;Ontario;Toronto;High anonymity;1073 kB/s;;715 ms;6 hours ago
+148.251.40.177;59166;SOCKS5;Germany;;;High anonymity;1070 kB/s;;562 ms;5 hours ago
+165.227.153.96;59166;SOCKS5;Germany;Hessen;Frankfurt;High anonymity;1060 kB/s;;538 ms;11 hours ago
+152.228.220.195;59166;SOCKS5;United States;Indiana;Valparaiso;High anonymity;1060 kB/s;100%;493 ms;5 hours ago
+51.158.124.186;59166;SOCKS5;France;Ile-de-France;Paris;High anonymity;1046 kB/s;;542 ms;12 hours ago
+78.46.79.66;59166;SOCKS5;Germany;Nordrhein-Westfalen;Kempen;High anonymity;1036 kB/s;;597 ms;9 hours ago
+51.178.82.49;59166;SOCKS5;France;;;High anonymity;1033 kB/s;100%;564 ms;5 hours ago
+163.116.158.213;8081;HTTP;France;;;High anonymity;6007 kB/s;100%;66 ms;11 hours ago
+192.81.216.55;59166;SOCKS5;United States;New Jersey;North Bergen;High anonymity;4570 kB/s;;62 ms;8 hours ago
+172.105.8.155;59166;SOCKS5;United States;New Jersey;Absecon;High anonymity;4540 kB/s;80%;62 ms;11 hours ago
+159.203.122.213;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4496 kB/s;20%;57 ms;7 hours ago
+178.128.150.115;59166;SOCKS5;Greece;Attiki;Athens;High anonymity;4315 kB/s;60%;55 ms;11 hours ago
+163.116.158.212;8081;HTTP;France;;;High anonymity;4223 kB/s;85.7%;64 ms;8 hours ago
+98.142.110.251;59166;SOCKS5;United States;Florida;Orlando;High anonymity;1901 kB/s;;296 ms;8 hours ago
+143.198.100.226;59166;SOCKS5;United States;Colorado;Broomfield;High anonymity;1530 kB/s;80%;409 ms;11 hours ago
+157.230.204.88;59166;SOCKS5;United States;Georgia;Duluth;High anonymity;1517 kB/s;50%;396 ms;9 hours ago
+139.59.186.196;59166;SOCKS5;United Kingdom;Slough;London;High anonymity;1258 kB/s;80%;495 ms;11 hours ago
+85.214.133.177;59166;SOCKS5;Germany;Berlin;Berlin;High anonymity;1001 kB/s;;590 ms;11 hours ago
+172.104.8.65;59166;SOCKS5;United States;New Jersey;Absecon;High anonymity;5087 kB/s;57.1%;53 ms;12 hours ago
+159.203.93.192;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4600 kB/s;83.3%;56 ms;13 hours ago
+138.197.11.186;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4570 kB/s;;64 ms;7 hours ago
+154.38.161.241;80;HTTPS;United States;;;Transparent;4302 kB/s;27.7%;187 ms;14 hours ago
+67.207.89.36;59166;SOCKS5;United States;New Jersey;North Bergen;High anonymity;4236 kB/s;;80 ms;14 hours ago
+165.227.187.48;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4223 kB/s;83.3%;58 ms;8 hours ago
+167.99.21.166;59166;SOCKS5;United States;New Jersey;Clifton;High anonymity;4148 kB/s;;63 ms;12 hours ago
+142.93.250.71;59166;SOCKS5;Canada;Ontario;Toronto;High anonymity;4136 kB/s;;64 ms;9 hours ago
+157.245.253.92;59166;SOCKS5;United States;Oregon;Eugene;High anonymity;3871 kB/s;83.3%;60 ms;11 hours ago
+157.230.8.196;59166;SOCKS5;United States;Georgia;Duluth;High anonymity;3287 kB/s;62.5%;81 ms;9 hours ago
+192.151.146.242;3128;HTTPS;United States;Missouri;Kansas City;Transparent;3139 kB/s;15.7%;207 ms;14 hours ago
+23.82.16.149;3128;HTTPS;United States;Arizona;Phoenix;Transparent;1863 kB/s;4.7%;518 ms;6 hours ago
+155.133.26.123;8080;HTTPS;Poland;;;Transparent;1721 kB/s;14.8%;468 ms;11 hours ago
+178.128.177.166;59166;SOCKS5;Greece;Attiki;Kallithéa;High anonymity;1537 kB/s;62.5%;400 ms;12 hours ago
+167.172.119.162;59166;SOCKS5;United Kingdom;Hertford;Stevenage;High anonymity;1513 kB/s;75%;395 ms;8 hours ago
+199.58.184.97;4145;SOCKS5;United States;Georgia;Atlanta;High anonymity;1352 kB/s;99.3%;432 ms;14 hours ago
+200.13.22.210;80;HTTPS;Mexico;Nuevo Leon;Monterrey;Transparent;1283 kB/s;71.6%;2295 ms;12 hours ago
+51.210.182.122;59166;SOCKS5;France;;;High anonymity;1141 kB/s;;485 ms;13 hours ago
+188.166.98.189;59166;SOCKS5;Netherlands;Noord-Holland;Amsterdam;High anonymity;1141 kB/s;;505 ms;13 hours ago
+51.255.46.210;59166;SOCKS5;France;;;High anonymity;1139 kB/s;;481 ms;11 hours ago
+51.255.207.18;59166;SOCKS5;France;;;High anonymity;1107 kB/s;;478 ms;8 hours ago

@@ -1,5 +1,7 @@
 import time
 import random
+import json
+from pprint import pprint
 import csv
 import os.path
 import requests
@@ -11,14 +13,14 @@ from aiohttp_socks import ProxyConnector, ProxyType
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-from free_proxy_list_net import Free_Proxt_List_Net
 
-
-class HideMy_Name:
+class FreeProxyNet:
     def __init__(self):
-        self.domain = 'https://hidemy.name/en/proxy-list/'
+        self.domain = 'https://www.freeproxylists.net/?cl=true'
         self.fake_useragent = lambda: fake_useragent.UserAgent().random.strip()
-        self.csv_path = 'hidemy_name.csv'
+        self.csv_path = 'freeproxylists.csv'
+
+
 
     async def pars_page(self, url, params_proxy_list, proxies_for_pars):
         # Корутина парсит прокси со страницы
@@ -89,7 +91,7 @@ class HideMy_Name:
         proxy_address = f'http://{ip}:{port}'
         async with aiohttp.ClientSession(headers={'User-Agent': self.fake_useragent()}, trust_env=True) as session:
             async with await session.get(url='http://httpbin.org/ip', proxy=proxy_address, timeout=3.0) as response:
-                return response
+                pprint(response)
     async def check_socks(self, protocol, ip, port):
         # Корутина отправляет запрос на socks прокси и отдаёт response корутине check
         # protocol -- протокол проверяемого прокси
@@ -112,7 +114,8 @@ class HideMy_Name:
 
         async with aiohttp.ClientSession(connector=connector, headers={'User-Agent': self.fake_useragent()}, trust_env=True) as session:
             async with await session.get(url='http://httpbin.org/ip', timeout=3.0) as response:
-                return response
+                pprint(response)
+
     async def check(self, protocol, ip, port):
         # Корутина отправляет запрос на прокси
         # protocol -- протокол проверяемого прокси
@@ -121,24 +124,26 @@ class HideMy_Name:
         # Возвращает список с 2-я эдементами: адрес и bool результат запроса
         await asyncio.sleep(1, 5)
         try:
-            if protocol in ['HTTP', 'HTTPS']:
-                response = await self.check_http(ip, port)
-            else:
-                response = await self.check_socks(protocol, ip, port)
-
-            if response.ok:
-                print(f'{protocol}://{ip}', True)
-                return [ip, True]
-            else:
-                print(f'{protocol}://{ip}', False)
-                return [ip, False]
-        except TimeoutError:
             pass
+            # if protocol in ['HTTP', 'HTTPS']:
+            #     response = await self.check_http(ip, port)
+            # else:
+            #     response = await self.check_socks(protocol, ip, port)
+            #
+            # pprint(response)
+            # if response.ok:
+            #     print(f'{protocol}://{ip}', True)
+            #     return [ip, True]
+            # else:
+            #     print(f'{protocol}://{ip}', False)
+            #     return [ip, False]
+        except TimeoutError:
+            print(f'{protocol}://{ip}', 'Timeout')
         except asyncio.CancelledError:
             print(f'{protocol}://{ip}', 'Stop')
-        except BaseException as _ex:
-            print(f'{protocol}://{ip}', False, 'Timeout')
-            return [ip, False]
+        # except BaseException as _ex:
+        #     print(f'{protocol}://{ip}', False, 'Timeout')
+        #     return [ip, False]
     async def check_proxies(self, params_tuple):
         # Корутина собирает и запускает таски чекеры
         # params_tuple -- кортеж *args аргументов из функции раннера
@@ -165,30 +170,30 @@ class HideMy_Name:
         gather_res = asyncio.run(func(args))
         pass
 
-    def get_fields_names_site(self, proxy_from_csv):
+
+
+    # Дописать обработку ошибок
+    def get_browser(self):
+        # Возвращает объект webdriver
+        options_chrome = webdriver.ChromeOptions()
+        options_chrome.add_argument('--headless')
+        return webdriver.Chrome(options=options_chrome)
+    def quit_browser(self, browser):
+        # Закрывает браузер
+        browser.quit()
+
+    # ДОПИСАТЬ комментарии и обработку исключений
+    def get_proxy_params(self, browser):
         # Получение списка названий параметров прокси
         print('GET FIELDS NAMES...')
-        random.shuffle(proxy_from_csv)
+        try:
+            browser.get(self.domain)
+            proxy_params_by = browser.find_element(By.CLASS_NAME, 'DataGrid').find_element(By.CLASS_NAME, 'Caption').find_elements(By.TAG_NAME, 'td')
+            proxy_params_list = [param_by.text for param_by in proxy_params_by]
 
-        for i, proxy in enumerate(proxy_from_csv, 1):
-            proxy_dict = {
-                'http': f'http://{proxy["IP Address"]}:{proxy["Port"]}',
-                'https': f'http://{proxy["IP Address"]}:{proxy["Port"]}'
-            }
-            try:
-                response = requests.get(self.domain, headers={'User-Agent': self.fake_useragent()}, proxies=proxy_dict,
-                                        timeout=3.0)
-                if response.ok:
-                    bs = BeautifulSoup(response.text, 'lxml')
-                    fields_names_list = [th.text.strip() for th in
-                                         bs.find('div', 'table_block').find('thead').find_all('td')]
-                    break
-            except:
-                print(f'{i}/{len(proxy_from_csv)}: {proxy["IP Address"]}, {self.domain} Bad request')
-                # time.sleep(3)
-                continue
-        return fields_names_list
-
+            return proxy_params_list
+        except:
+            print('Get params proxy FAILED')
     def get_fields_names(self):
         # Возвращает список названий полей csv
         with open(self.csv_path, 'r', encoding='utf-8-sig') as file:
@@ -196,29 +201,23 @@ class HideMy_Name:
             fields_names_list = row.split(';')
             return fields_names_list
 
-    def get_max_page(self, proxy_from_csv):
+    # ДОПИСАТЬ!!!!
+    def get_max_page(self, browser):
         # Получение номера последней страницы
-        print('GET MAX PAGE...')
-        random.shuffle(proxy_from_csv)
-        for i, proxy in enumerate(proxy_from_csv, 1):
-            proxy_dict = {
-                'http': f'http://{proxy["IP Address"]}:{proxy["Port"]}',
-                'https': f'http://{proxy["IP Address"]}:{proxy["Port"]}'
-            }
-            try:
-                response = requests.get(self.domain, headers={'User-Agent': self.fake_useragent()}, proxies=proxy_dict,
-                                        timeout=3.0)
-                if response.ok:
-                    bs = BeautifulSoup(response.text, 'lxml')
-                    link_page_list = bs.find('div', 'pagination').find_all('a')
-                    if not link_page_list[-1].text: link_page_list.pop()  # Удаление ссылки со стрелкой "след. страница"
-                    max_page = int(link_page_list[-1].text)
-                    break
-            except:
-                print(f'{i}/{len(proxy_from_csv)}: {proxy["IP Address"]}, {self.domain} Bad request')
-                # time.sleep(3)
-                continue
-        return max_page
+        print('GETTING MAX PAGE...')
+        try:
+            browser.get(self.domain)
+            pages_links_list = [link.text.strip() for link in browser.find_element(By.CLASS_NAME, 'page').find_elements(By.TAG_NAME, 'a')]
+            if not pages_links_list[-1].isdigit(): pages_links_list.pop()  # Последняя ссылка -- это ссылка на след. страницу (надпись "Next" вместо цифры), удаляем последний элемент списка
+            max_page = int(pages_links_list[-1])
+            return max_page
+        except TypeError:
+            # Если .isdigit() выдало ошибку
+            print('Get Max Page FAILED TypeError')
+        except AttributeError:
+            print('Get Max Page FAILED AttributeError')
+
+
 
     def filter(self, proxy_list, filter):
         # Отбирает прокси из списка по фильтру
@@ -288,20 +287,39 @@ class HideMy_Name:
                 writer.writerow(proxy)
         print('END SAVING')
 
-    def parsing(self):
+    def parsing(self, filter = []):
         # Получает proxy с сайта, все если filter пуст
         # filter -- параметры отбора proxy с сайта
         # Возвращает список
 
         print('PARSING...')
-        free_proxy_parser = Free_Proxt_List_Net()
-        proxy_from_csv = free_proxy_parser.get_proxies()
-        max_page = self.get_max_page(proxy_from_csv)
-        params_proxy_list = self.get_fields_names_site(proxy_from_csv)
+        proxy_site_list = []
+        browser = self.get_browser()
+        max_page = self.get_max_page(browser)
+        proxy_params_list = self.get_proxy_params(browser)
+        max_page = 1
+        for page in range(1, max_page+1):
+            #  ЗАКОНЧИЛ ЗДЕСЬ!!!!
+            print(f'Page > {page}')
+            url = f'{self.domain}?page={page}'
 
-        max_page = 0
-        proxies_pars_list = self.main_async(self.pars_async, max_page, params_proxy_list, proxy_from_csv)
-        return proxies_pars_list
+            try:
+                browser.get(url)
+                page_bs = BeautifulSoup('', 'lxml')
+                #  ЗАКОНЧИЛ ЗДЕСЬ!!!!
+                proxy_tr_list = [proxy_tr for proxy_tr in browser.find_element(By.CLASS_NAME, 'DataGrid').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'tr')]
+                for proxy_tr_num, proxy_tr in enumerate(proxy_tr_list, 1):
+                    if not proxy_tr_num - 1: continue  # Пропускаем строку с заголовками
+                    if not proxy_tr.text: continue  # Отсеиваем строки с рекламой
+                    print(f'Page {page}, {proxy_tr_num} proxy')
+                    proxy_site_list.append({})
+                    for param_num, proxy_td in enumerate(proxy_tr.find_elements(By.TAG_NAME, 'td')):
+                        proxy_site_list[-1].update({proxy_params_list[param_num]: proxy_td.text.strip()})
+            except:
+                print('GET PAGE FAILED')
+                pass
+
+        return proxy_site_list
 
     # ДОПИСАТЬ!!!!
     def update(self, filter=[]):
@@ -309,35 +327,30 @@ class HideMy_Name:
         # filter -- список параметров для новых proxy
         # Возвращает True, либо код ошибки
         print('UPDATING...')
-        proxy_from_site_list = self.parsing()
+        proxy_site_list = self.parsing()
         if filter:
-            proxy_from_site_list = self.filter(proxy_from_site_list, filter)
+            proxy_site_list = self.filter(proxy_site_list, filter)
 
-        proxy_checked_list = self.check_proxies_async(proxy_from_site_list)
-        good_proxy_site = []
-        for proxy in proxy_from_site_list:
-            if proxy_checked_list[proxy['IP address']]:
-                good_proxy_site.append(proxy)
+        # proxies_checked_list = self.main_async(self.check_proxies, proxy_site_list)
+        # good_proxy_site = []
+        # for proxy in proxy_site_list:
+        #     if proxies_checked_list[proxy['IP Address']]:
+        #         good_proxy_site.append(proxy)
 
-        # proxy_checked_list=[]
-        # for proxy in proxy_from_site_list:
-        #     if self.check_proxy(proxy['IP address'], proxy['Port']):
-        #         proxy_checked_list.append(proxy)
-
-        if os.path.exists('free_proxy_cz.csv'):
+        if os.path.exists(self.csv_path):
             proxies_from_csv = self.get_from_csv()
             proxies_to_save = []
-            for proxy in good_proxy_site:
+            for proxy in proxy_site_list:
                 save = True
                 for proxy_from_csv in proxies_from_csv:
-                    if proxy['IP address'] == proxy_from_csv['IP address']:
+                    if proxy['IP Address'] == proxy_from_csv['IP Address']:
                         save = False
                 if save:
                     proxies_to_save.append(proxy)
 
             return self.save_to_csv(proxies_to_save)
         else:
-            return self.save_to_csv(good_proxy_site, 'w')
+            return self.save_to_csv(proxy_site_list, 'w')
 
     def check_csv(self):
         # Выгружает proxy из csv, проверяет робочие, перезаписывает файл
@@ -364,6 +377,6 @@ class HideMy_Name:
         return good_proxies_list
 
 
-parser = HideMy_Name()
+parser = FreeProxyNet()
 print('RUN')
-parser.parsing()
+parser.update()

@@ -196,8 +196,8 @@ class Free_Proxt_List_Net:
         return good_proxies_list
 
 
-parser = Free_Proxt_List_Net()
-parser.update()
+# parser = Free_Proxt_List_Net()
+# parser.check_csv()
 
 
 
